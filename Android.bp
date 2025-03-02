@@ -16304,9 +16304,9 @@ cc_prebuilt_binary {
 }
 
 install_symlink {
-	name: "libGLES_mali_vulkan.mt6768_symlink32",
+	name: "libGLES_mali_vulkan.mt6785_symlink32",
 	soc_specific: true,
-	installed_location: "lib/hw/vulkan.mt6768.so",
+	installed_location: "lib/hw/vulkan.mt6785.so",
 	symlink_target: "/vendor/lib/egl/libGLES_mali.so",
 }
 
@@ -16318,9 +16318,9 @@ install_symlink {
 }
 
 install_symlink {
-	name: "libGLES_mali_vulkan.mt6768_symlink64",
+	name: "libGLES_mali_vulkan.mt6785_symlink64",
 	soc_specific: true,
-	installed_location: "lib64/hw/vulkan.mt6768.so",
+	installed_location: "lib64/hw/vulkan.mt6785.so",
 	symlink_target: "/vendor/lib64/egl/libGLES_mali.so",
 }
 
@@ -16330,3 +16330,4 @@ install_symlink {
 	installed_location: "lib64/hw/gatekeeper.default.so",
 	symlink_target: "/vendor/lib64/hw/libSoftGatekeeper.so",
 }
+
