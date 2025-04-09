@@ -11,6 +11,146 @@ soong_namespace {
 }
 
 cc_prebuilt_library_shared {
+	name: "libaudio_param_parser-sys",
+	owner: "redmi",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm: {
+			srcs: ["proprietary/system/lib/libaudio_param_parser-sys.so"],
+			shared_libs: ["libutils", "libcutils", "liblog", "libbinder", "libaudioclient", "libhidlbase", "android.hardware.audio@6.0", "vendor.mediatek.hardware.audio@6.1", "libc++", "libc", "libm", "libdl", ],
+		},
+		android_arm64: {
+			srcs: ["proprietary/system/lib64/libaudio_param_parser-sys.so"],
+			shared_libs: ["libutils", "libcutils", "liblog", "libbinder", "libaudioclient", "libhidlbase", "android.hardware.audio@6.0", "vendor.mediatek.hardware.audio@6.1", "libc++", "libc", "libm", "libdl", ],
+		},
+	},
+	compile_multilib: "both",
+	prefer: true,
+}
+
+cc_prebuilt_library_shared {
+	name: "libaudiotoolkit",
+	owner: "redmi",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm: {
+			srcs: ["proprietary/system/lib/libaudiotoolkit.so"],
+			shared_libs: ["liblog", "libcutils", "libutils", "libaudioclient", "libc++", "libc", "libm", "libdl", ],
+		},
+		android_arm64: {
+			srcs: ["proprietary/system/lib64/libaudiotoolkit.so"],
+			shared_libs: ["liblog", "libcutils", "libutils", "libaudioclient", "libc++", "libc", "libm", "libdl", ],
+		},
+	},
+	compile_multilib: "both",
+	prefer: true,
+}
+
+cc_prebuilt_library_shared {
+	name: "libaudioutilmtk",
+	owner: "redmi",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm: {
+			srcs: ["proprietary/system/lib/libaudioutilmtk.so"],
+		},
+		android_arm64: {
+			srcs: ["proprietary/system/lib64/libaudioutilmtk.so"],
+		},
+	},
+	compile_multilib: "both",
+	check_elf_files: false,
+	prefer: true,
+}
+
+cc_prebuilt_library_shared {
+	name: "libem_audio_jni",
+	owner: "redmi",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm: {
+			srcs: ["proprietary/system/lib/libem_audio_jni.so"],
+			shared_libs: ["libnativehelper", "libandroid_runtime", "libutils", "libui", "libcutils", "libaudioclient", "liblog", "libaudiotoolkit", "libc++", "libc", "libm", "libdl", ],
+		},
+		android_arm64: {
+			srcs: ["proprietary/system/lib64/libem_audio_jni.so"],
+			shared_libs: ["libnativehelper", "libandroid_runtime", "libutils", "libui", "libcutils", "libaudioclient", "liblog", "libaudiotoolkit", "libc++", "libc", "libm", "libdl", ],
+		},
+	},
+	compile_multilib: "both",
+	prefer: true,
+}
+
+cc_prebuilt_library_shared {
+	name: "libem_support_jni",
+	owner: "redmi",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm: {
+			srcs: ["proprietary/system/lib/libem_support_jni.so"],
+			shared_libs: ["libandroid_runtime", "libcutils", "liblog", "libutils", "libgui", "libc++", "libc", "libm", "libdl", ],
+		},
+		android_arm64: {
+			srcs: ["proprietary/system/lib64/libem_support_jni.so"],
+			shared_libs: ["libjni_shim", "libandroid_runtime", "libcutils", "liblog", "libutils", "libgui", "libc++", "libc", "libm", "libdl", ],
+		},
+	},
+	compile_multilib: "both",
+	check_elf_files: false,
+	prefer: true,
+}
+
+cc_prebuilt_library_shared {
+	name: "libem_usb_jni",
+	owner: "redmi",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm: {
+			srcs: ["proprietary/system/lib/libem_usb_jni.so"],
+			shared_libs: ["libnativehelper", "libandroid_runtime", "libutils", "libui", "libcutils", "liblog", "libc++", "libc", "libm", "libdl", ],
+		},
+		android_arm64: {
+			srcs: ["proprietary/system/lib64/libem_usb_jni.so"],
+			shared_libs: ["libnativehelper", "libandroid_runtime", "libutils", "libui", "libcutils", "liblog", "libc++", "libc", "libm", "libdl", ],
+		},
+	},
+	compile_multilib: "both",
+	prefer: true,
+}
+
+cc_prebuilt_library_shared {
+	name: "libem_wifi_jni",
+	owner: "redmi",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm: {
+			srcs: ["proprietary/system/lib/libem_wifi_jni.so"],
+			shared_libs: ["libandroid_runtime", "libui", "liblog", "libc++", "libc", "libm", "libdl", ],
+		},
+		android_arm64: {
+			srcs: ["proprietary/system/lib64/libem_wifi_jni.so"],
+			shared_libs: ["libandroid_runtime", "libui", "liblog", "libc++", "libc", "libm", "libdl", ],
+		},
+	},
+	compile_multilib: "both",
+	prefer: true,
+}
+
+cc_prebuilt_library_shared {
 	name: "libmtk_vt_wrapper",
 	owner: "redmi",
 	strip: {
@@ -18,10 +158,10 @@ cc_prebuilt_library_shared {
 	},
 	target: {
 		android_arm: {
-			srcs: ["proprietary//lib/libmtk_vt_wrapper.so"],
+			srcs: ["proprietary/system/lib/libmtk_vt_wrapper.so"],
 		},
 		android_arm64: {
-			srcs: ["proprietary//lib64/libmtk_vt_wrapper.so"],
+			srcs: ["proprietary/system/lib64/libmtk_vt_wrapper.so"],
 		},
 	},
 	compile_multilib: "both",
@@ -37,10 +177,10 @@ cc_prebuilt_library_shared {
 	},
 	target: {
 		android_arm: {
-			srcs: ["proprietary//lib/libmtkavenhancements.so"],
+			srcs: ["proprietary/system/lib/libmtkavenhancements.so"],
 		},
 		android_arm64: {
-			srcs: ["proprietary//lib64/libmtkavenhancements.so"],
+			srcs: ["proprietary/system/lib64/libmtkavenhancements.so"],
 		},
 	},
 	compile_multilib: "both",
@@ -56,11 +196,11 @@ cc_prebuilt_library_shared {
 	},
 	target: {
 		android_arm: {
-			srcs: ["proprietary//lib/libvcodec_cap.so"],
+			srcs: ["proprietary/system/lib/libvcodec_cap.so"],
 			shared_libs: ["libui", "libcutils", "libutils", "libbinder", "libexpat", "liblog", "libvcodec_capenc", "libstagefright_omx_utils", "libstagefright_foundation", "libion", "android.hardware.graphics.bufferqueue@2.0", "libc++", "libc", "libm", "libdl", ],
 		},
 		android_arm64: {
-			srcs: ["proprietary//lib64/libvcodec_cap.so"],
+			srcs: ["proprietary/system/lib64/libvcodec_cap.so"],
 			shared_libs: ["libui", "libcutils", "libutils", "libbinder", "libexpat", "liblog", "libvcodec_capenc", "libstagefright_omx_utils", "libstagefright_foundation", "libion", "android.hardware.graphics.bufferqueue@2.0", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
@@ -76,11 +216,11 @@ cc_prebuilt_library_shared {
 	},
 	target: {
 		android_arm: {
-			srcs: ["proprietary//lib/libvcodec_capenc.so"],
+			srcs: ["proprietary/system/lib/libvcodec_capenc.so"],
 			shared_libs: ["liblog", "libion", "libc++", "libc", "libm", "libdl", ],
 		},
 		android_arm64: {
-			srcs: ["proprietary//lib64/libvcodec_capenc.so"],
+			srcs: ["proprietary/system/lib64/libvcodec_capenc.so"],
 			shared_libs: ["liblog", "libion", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
@@ -96,7 +236,7 @@ cc_prebuilt_library_shared {
 	},
 	target: {
 		android_arm: {
-			srcs: ["proprietary//lib/libcomutils.so"],
+			srcs: ["proprietary/system/lib/libcomutils.so"],
 			shared_libs: ["libcutils", "libstagefright_foundation", "libutils", "libstagefright", "libmedia", "liblog", "libhidlbase", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
@@ -112,7 +252,7 @@ cc_prebuilt_library_shared {
 	},
 	target: {
 		android_arm: {
-			srcs: ["proprietary//lib/libimsma.so"],
+			srcs: ["proprietary/system/lib/libimsma.so"],
 		},
 	},
 	compile_multilib: "32",
@@ -128,7 +268,7 @@ cc_prebuilt_library_shared {
 	},
 	target: {
 		android_arm: {
-			srcs: ["proprietary//lib/libimsma_adapt.so"],
+			srcs: ["proprietary/system/lib/libimsma_adapt.so"],
 			shared_libs: ["liblog", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
@@ -144,7 +284,7 @@ cc_prebuilt_library_shared {
 	},
 	target: {
 		android_arm: {
-			srcs: ["proprietary//lib/libimsma_rtp.so"],
+			srcs: ["proprietary/system/lib/libimsma_rtp.so"],
 			shared_libs: ["libbinder", "libmedia", "libutils", "libcutils", "libstagefright", "libstagefright_foundation", "libimsma_socketwrapper", "libvcodec_cap", "libimsma_adapt", "liblog", "libsignal", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
@@ -160,7 +300,7 @@ cc_prebuilt_library_shared {
 	},
 	target: {
 		android_arm: {
-			srcs: ["proprietary//lib/libimsma_socketwrapper.so"],
+			srcs: ["proprietary/system/lib/libimsma_socketwrapper.so"],
 			shared_libs: ["libbinder", "libmedia", "libutils", "libcutils", "libstagefright", "libstagefright_foundation", "libnetd_client", "liblog", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
@@ -176,7 +316,7 @@ cc_prebuilt_library_shared {
 	},
 	target: {
 		android_arm: {
-			srcs: ["proprietary//lib/libmtk_vt_service.so"],
+			srcs: ["proprietary/system/lib/libmtk_vt_service.so"],
 		},
 	},
 	compile_multilib: "32",
@@ -192,7 +332,7 @@ cc_prebuilt_library_shared {
 	},
 	target: {
 		android_arm: {
-			srcs: ["proprietary//lib/libsignal.so"],
+			srcs: ["proprietary/system/lib/libsignal.so"],
 			shared_libs: ["libcutils", "libutils", "libstagefright_foundation", "liblog", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
@@ -208,7 +348,7 @@ cc_prebuilt_library_shared {
 	},
 	target: {
 		android_arm: {
-			srcs: ["proprietary//lib/libsink.so"],
+			srcs: ["proprietary/system/lib/libsink.so"],
 			shared_libs: ["libshim_vtservice", "libbinder", "libcutils", "libgui", "libmedia", "libstagefright", "libstagefright_foundation", "libui", "libutils", "libcomutils", "libvcodec_cap", "libvt_avsync", "liblog", "libmedia_omx", "libaudioclient", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
@@ -224,7 +364,7 @@ cc_prebuilt_library_shared {
 	},
 	target: {
 		android_arm: {
-			srcs: ["proprietary//lib/libsource.so"],
+			srcs: ["proprietary/system/lib/libsource.so"],
 			shared_libs: ["libui_shim", "libbinder", "libcutils", "libgui", "libmedia", "libstagefright", "libstagefright_foundation", "libmedia_omx", "libui", "libutils", "libcamera_client", "libcomutils", "libvcodec_cap", "liblog", "libsignal", "libhardware", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
@@ -240,7 +380,7 @@ cc_prebuilt_library_shared {
 	},
 	target: {
 		android_arm: {
-			srcs: ["proprietary//lib/libvt_avsync.so"],
+			srcs: ["proprietary/system/lib/libvt_avsync.so"],
 			shared_libs: ["libbinder", "libutils", "libcutils", "liblog", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
@@ -256,7 +396,7 @@ cc_prebuilt_library_shared {
 	},
 	target: {
 		android_arm64: {
-			srcs: ["proprietary//lib64/extractors/libmtkadpcmextractor.so"],
+			srcs: ["proprietary/system/lib64/extractors/libmtkadpcmextractor.so"],
 			shared_libs: ["libmtkavenhancements", "libbinder_ndk", "liblog", "libmediandk", "libcutils", "libstagefright_foundation", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
@@ -273,7 +413,7 @@ cc_prebuilt_library_shared {
 	},
 	target: {
 		android_arm64: {
-			srcs: ["proprietary//lib64/extractors/libmtkalacextractor.so"],
+			srcs: ["proprietary/system/lib64/extractors/libmtkalacextractor.so"],
 			shared_libs: ["liblog", "libmediandk", "libcutils", "libstagefright_foundation", "libmedia", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
@@ -290,7 +430,7 @@ cc_prebuilt_library_shared {
 	},
 	target: {
 		android_arm64: {
-			srcs: ["proprietary//lib64/extractors/libmtkapeextractor.so"],
+			srcs: ["proprietary/system/lib64/extractors/libmtkapeextractor.so"],
 			shared_libs: ["libmtkavenhancements", "liblog", "libmediandk", "libcutils", "libstagefright_foundation", "libmedia", "libbinder_ndk", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
@@ -307,7 +447,7 @@ cc_prebuilt_library_shared {
 	},
 	target: {
 		android_arm64: {
-			srcs: ["proprietary//lib64/extractors/libmtkasfextractor.so"],
+			srcs: ["proprietary/system/lib64/extractors/libmtkasfextractor.so"],
 			shared_libs: ["liblog", "libmediandk", "libstagefright_foundation", "libcutils", "libmedia", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
@@ -324,7 +464,7 @@ cc_prebuilt_library_shared {
 	},
 	target: {
 		android_arm64: {
-			srcs: ["proprietary//lib64/extractors/libmtkaviextractor.so"],
+			srcs: ["proprietary/system/lib64/extractors/libmtkaviextractor.so"],
 			shared_libs: ["liblog", "libmediandk", "libutils", "libstagefright_foundation", "libstagefright_omx_utils", "libstagefright", "libmedia_omx", "libbinder", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
@@ -341,7 +481,7 @@ cc_prebuilt_library_shared {
 	},
 	target: {
 		android_arm64: {
-			srcs: ["proprietary//lib64/extractors/libmtkflvextractor.so"],
+			srcs: ["proprietary/system/lib64/extractors/libmtkflvextractor.so"],
 			shared_libs: ["liblog", "libmediandk", "libutils", "libmedia", "libstagefright", "libstagefright_foundation", "libcutils", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
@@ -358,7 +498,7 @@ cc_prebuilt_library_shared {
 	},
 	target: {
 		android_arm64: {
-			srcs: ["proprietary//lib64/extractors/libmtkmp3extractor.so"],
+			srcs: ["proprietary/system/lib64/extractors/libmtkmp3extractor.so"],
 			shared_libs: ["libcutils", "liblog", "libmediandk", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
@@ -375,7 +515,7 @@ cc_prebuilt_library_shared {
 	},
 	target: {
 		android_arm64: {
-			srcs: ["proprietary//lib64/extractors/libmtkmpeg2extractor.so"],
+			srcs: ["proprietary/system/lib64/extractors/libmtkmpeg2extractor.so"],
 			shared_libs: ["android.hardware.cas@1.0", "android.hardware.cas.native@1.0", "android.hidl.token@1.0-utils", "android.hidl.allocator@1.0", "libhidlmemory", "libhidlbase", "liblog", "libmediandk", "libcrypto", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
@@ -798,7 +938,7 @@ cc_prebuilt_library_shared {
 		},
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/hw/android.hardware.thermal@2.0-impl.so"],
-			shared_libs: ["liblog", "libhardware", "libbase", "libcutils", "libutils-v32", "libhidlbase", "android.hardware.thermal@1.0", "android.hardware.thermal@2.0", "libc++", "libc", "libm", "libdl", ],
+			shared_libs: ["libprocessgroup_shim", "liblog", "libhardware", "libbase", "libcutils", "libutils-v32", "libhidlbase", "android.hardware.thermal@1.0", "android.hardware.thermal@2.0", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "both",
@@ -5871,27 +6011,6 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-	name: "libMtkOmxCore",
-	owner: "redmi",
-	strip: {
-		none: true,
-	},
-	target: {
-		android_arm: {
-			srcs: ["proprietary/vendor/lib/libMtkOmxCore.so"],
-			shared_libs: ["libbinder", "libutils", "libcutils", "libui", "libion", "liblog", "libc++", "libc", "libm", "libdl", ],
-		},
-		android_arm64: {
-			srcs: ["proprietary/vendor/lib64/libMtkOmxCore.so"],
-			shared_libs: ["libbinder", "libutils", "libcutils", "libui", "libion", "liblog", "libc++", "libc", "libm", "libdl", ],
-		},
-	},
-	compile_multilib: "both",
-	prefer: true,
-	soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
 	name: "libMtkSpeechEnh",
 	owner: "redmi",
 	strip: {
@@ -6278,11 +6397,11 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm: {
 			srcs: ["proprietary/vendor/lib/libaalservice.so"],
-			shared_libs: ["libutils", "libcutils", "liblog", "libaal_mtk", "libhardware", "libhidlbase", "libgralloc_extra", "android.frameworks.sensorservice@1.0", "android.hardware.sensors@1.0", "libsensorndkbridge", "libdrm", "libc++", "libc", "libm", "libdl", ],
+			shared_libs: ["android.hardware.sensors@1.0-convert-shared", "libutils", "libcutils", "liblog", "libaal_mtk", "libhardware", "libhidlbase", "libgralloc_extra", "android.frameworks.sensorservice@1.0", "android.hardware.sensors@1.0", "libsensorndkbridge", "libdrm", "libc++", "libc", "libm", "libdl", ],
 		},
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libaalservice.so"],
-			shared_libs: ["libshim_sensors", "libutils", "libcutils", "liblog", "libaal_mtk", "libhardware", "libhidlbase", "libgralloc_extra", "android.frameworks.sensorservice@1.0", "android.hardware.sensors@1.0", "libsensorndkbridge", "libdrm", "libc++", "libc", "libm", "libdl", ],
+			shared_libs: ["android.hardware.sensors@1.0-convert-shared", "libutils", "libcutils", "liblog", "libaal_mtk", "libhardware", "libhidlbase", "libgralloc_extra", "android.frameworks.sensorservice@1.0", "android.hardware.sensors@1.0", "libsensorndkbridge", "libdrm", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "both",
@@ -7078,11 +7197,11 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm: {
 			srcs: ["proprietary/vendor/lib/libcam.utils.sensorprovider.so"],
-			shared_libs: ["liblog", "libutils", "libcutils", "libmtkcam_stdutils", "android.frameworks.sensorservice@1.0", "android.hardware.sensors@1.0", "libhidlbase", "libhidltransport", "libsensorndkbridge", "libhardware", "libc++", "libc", "libm", "libdl", ],
+			shared_libs: ["android.hardware.sensors@1.0-convert-shared", "liblog", "libutils", "libcutils", "libmtkcam_stdutils", "android.frameworks.sensorservice@1.0", "android.hardware.sensors@1.0", "libhidlbase", "libhidltransport", "libsensorndkbridge", "libhardware", "libc++", "libc", "libm", "libdl", ],
 		},
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libcam.utils.sensorprovider.so"],
-			shared_libs: ["libshim_sensors", "liblog", "libutils", "libcutils", "libmtkcam_stdutils", "android.frameworks.sensorservice@1.0", "android.hardware.sensors@1.0", "libhidlbase", "libhidltransport", "libsensorndkbridge", "libhardware", "libc++", "libc", "libm", "libdl", ],
+			shared_libs: ["android.hardware.sensors@1.0-convert-shared", "liblog", "libutils", "libcutils", "libmtkcam_stdutils", "android.frameworks.sensorservice@1.0", "android.hardware.sensors@1.0", "libhidlbase", "libhidltransport", "libsensorndkbridge", "libhardware", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "both",
@@ -9653,27 +9772,6 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-	name: "libstagefrighthw",
-	owner: "redmi",
-	strip: {
-		none: true,
-	},
-	target: {
-		android_arm: {
-			srcs: ["proprietary/vendor/lib/libstagefrighthw.so"],
-			shared_libs: ["libbinder", "libutils", "libcutils", "liblog", "libui", "libc++", "libc", "libm", "libdl", ],
-		},
-		android_arm64: {
-			srcs: ["proprietary/vendor/lib64/libstagefrighthw.so"],
-			shared_libs: ["libbinder", "libutils", "libcutils", "liblog", "libui", "libc++", "libc", "libm", "libdl", ],
-		},
-	},
-	compile_multilib: "both",
-	prefer: true,
-	soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
 	name: "libstrongswan",
 	owner: "redmi",
 	strip: {
@@ -10086,48 +10184,6 @@ cc_prebuilt_library_shared {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libwapi.so"],
 			shared_libs: ["libkeystore-wifi-hidl", "libcrypto", "liblog", "libc++", "libc", "libm", "libdl", ],
-		},
-	},
-	compile_multilib: "both",
-	prefer: true,
-	soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-	name: "libwlparser",
-	owner: "redmi",
-	strip: {
-		none: true,
-	},
-	target: {
-		android_arm: {
-			srcs: ["proprietary/vendor/lib/libwlparser.so"],
-			shared_libs: ["libutils", "libcutils", "liblog", "libexpat", "libbinder", "libwlservice", "libc++", "libc", "libm", "libdl", ],
-		},
-		android_arm64: {
-			srcs: ["proprietary/vendor/lib64/libwlparser.so"],
-			shared_libs: ["libutils", "libcutils", "liblog", "libexpat", "libbinder", "libwlservice", "libc++", "libc", "libm", "libdl", ],
-		},
-	},
-	compile_multilib: "both",
-	prefer: true,
-	soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-	name: "libwlservice",
-	owner: "redmi",
-	strip: {
-		none: true,
-	},
-	target: {
-		android_arm: {
-			srcs: ["proprietary/vendor/lib/libwlservice.so"],
-			shared_libs: ["libutils", "libcutils", "liblog", "libexpat", "libbinder", "libc++", "libc", "libm", "libdl", ],
-		},
-		android_arm64: {
-			srcs: ["proprietary/vendor/lib64/libwlservice.so"],
-			shared_libs: ["libutils", "libcutils", "liblog", "libexpat", "libbinder", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "both",
@@ -11516,125 +11572,6 @@ cc_prebuilt_library_shared {
 	},
 	compile_multilib: "32",
 	check_elf_files: false,
-	prefer: true,
-	soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-	name: "libMtkOmxAdpcmDec",
-	owner: "redmi",
-	strip: {
-		none: true,
-	},
-	target: {
-		android_arm: {
-			srcs: ["proprietary/vendor/lib/libMtkOmxAdpcmDec.so"],
-			shared_libs: ["libutils", "libcutils", "liblog", "libc++", "libc", "libm", "libdl", ],
-		},
-	},
-	compile_multilib: "32",
-	prefer: true,
-	soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-	name: "libMtkOmxAlacDec",
-	owner: "redmi",
-	strip: {
-		none: true,
-	},
-	target: {
-		android_arm: {
-			srcs: ["proprietary/vendor/lib/libMtkOmxAlacDec.so"],
-			shared_libs: ["libutils", "libcutils", "liblog", "libc++", "libc", "libm", "libdl", ],
-		},
-	},
-	compile_multilib: "32",
-	prefer: true,
-	soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-	name: "libMtkOmxApeDec",
-	owner: "redmi",
-	strip: {
-		none: true,
-	},
-	target: {
-		android_arm: {
-			srcs: ["proprietary/vendor/lib/libMtkOmxApeDec.so"],
-			shared_libs: ["libutils", "libcutils", "libui", "liblog", "libhidlbase", "libhidltransport", "libhwbinder", "libhidlmemory", "vendor.mediatek.hardware.mtkcodecservice@1.1", "android.hidl.allocator@1.0", "android.hidl.memory@1.0", "libc++", "libc", "libm", "libdl", ],
-		},
-	},
-	compile_multilib: "32",
-	prefer: true,
-	soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-	name: "libMtkOmxGsmDec",
-	owner: "redmi",
-	strip: {
-		none: true,
-	},
-	target: {
-		android_arm: {
-			srcs: ["proprietary/vendor/lib/libMtkOmxGsmDec.so"],
-			shared_libs: ["libutils", "libcutils", "liblog", "libc++", "libc", "libm", "libdl", ],
-		},
-	},
-	compile_multilib: "32",
-	prefer: true,
-	soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-	name: "libMtkOmxMp3Dec",
-	owner: "redmi",
-	strip: {
-		none: true,
-	},
-	target: {
-		android_arm: {
-			srcs: ["proprietary/vendor/lib/libMtkOmxMp3Dec.so"],
-			shared_libs: ["libutils", "libcutils", "liblog", "libc++", "libc", "libm", "libdl", ],
-		},
-	},
-	compile_multilib: "32",
-	prefer: true,
-	soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-	name: "libMtkOmxVdecEx",
-	owner: "redmi",
-	strip: {
-		none: true,
-	},
-	target: {
-		android_arm: {
-			srcs: ["proprietary/vendor/lib/libMtkOmxVdecEx.so"],
-			shared_libs: ["libui_shim", "libutils", "libcutils", "liblog", "libui", "libion", "libged", "libion_mtk", "libsync", "android.hardware.graphics.common@1.2", "libdpframework", "libgralloc_extra", "libvcodecdrv", "libvcodec_utility", "libhardware", "vendor.mediatek.hardware.pq@2.5", "libbinder", "libhidlbase", "libhidltransport", "libc++", "libc", "libm", "libdl", ],
-		},
-	},
-	compile_multilib: "32",
-	prefer: true,
-	soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-	name: "libMtkOmxVenc",
-	owner: "redmi",
-	strip: {
-		none: true,
-	},
-	target: {
-		android_arm: {
-			srcs: ["proprietary/vendor/lib/libMtkOmxVenc.so"],
-			shared_libs: ["libbinder", "libutils", "libcutils", "liblog", "libui", "libion", "libion_mtk", "libgralloc_extra", "android.hardware.media@1.0", "android.hardware.media.omx@1.0", "libbwc", "android.hardware.graphics.common@1.2", "libvcodecdrv", "libvcodec_utility", "libhardware", "libdpframework", "libc++", "libc", "libm", "libdl", ],
-		},
-	},
-	compile_multilib: "32",
 	prefer: true,
 	soc_specific: true,
 }
@@ -14745,9 +14682,40 @@ cc_prebuilt_library_shared {
 }
 
 android_app_import {
+	name: "LocationEM2",
+	owner: "redmi",
+	apk: "proprietary/system/app/LocationEM2/LocationEM2.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+}
+
+android_app_import {
+	name: "YGPS",
+	owner: "redmi",
+	apk: "proprietary/system/app/YGPS/YGPS.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+}
+
+android_app_import {
+	name: "EngineerMode",
+	owner: "redmi",
+	apk: "proprietary/system/priv-app/EngineerMode/EngineerMode.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	privileged: true,
+}
+
+android_app_import {
 	name: "ImsService",
 	owner: "redmi",
-	apk: "proprietary/priv-app/ImsService/ImsService.apk",
+	apk: "proprietary/system/priv-app/ImsService/ImsService.apk",
 	certificate: "platform",
 	dex_preopt: {
 		enabled: false,
@@ -14764,37 +14732,6 @@ android_app_import {
 		enabled: false,
 	},
 	soc_specific: true,
-}
-
-android_app_import {
-	name: "HotwordEnrollmentOKGoogleCORTEXM4",
-	owner: "redmi",
-	apk: "proprietary/product/priv-app/HotwordEnrollmentOKGoogleCORTEXM4/HotwordEnrollmentOKGoogleCORTEXM4.apk",
-	certificate: "platform",
-	dex_preopt: {
-		enabled: false,
-	},
-	privileged: true,
-	product_specific: true,
-}
-
-android_app_import {
-	name: "HotwordEnrollmentXGoogleCORTEXM4",
-	owner: "redmi",
-	apk: "proprietary/product/priv-app/HotwordEnrollmentXGoogleCORTEXM4/HotwordEnrollmentXGoogleCORTEXM4.apk",
-	certificate: "platform",
-	dex_preopt: {
-		enabled: false,
-	},
-	privileged: true,
-	product_specific: true,
-}
-
-dex_import {
-	name: "com.android.hotwordenrollment.common.util",
-	owner: "redmi",
-	jars: ["proprietary/system_ext/framework/com.android.hotwordenrollment.common.util.jar"],
-	system_ext_specific: true,
 }
 
 prebuilt_etc_xml {
@@ -14856,7 +14793,7 @@ cc_prebuilt_binary {
 	owner: "redmi",
 	target: {
 		android_arm: {
-			srcs: ["proprietary/bin/vtservice"],
+			srcs: ["proprietary/system/bin/vtservice"],
 			shared_libs: ["libbinder", "libutils", "libcutils", "liblog", "libmtk_vt_service", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
@@ -15238,24 +15175,6 @@ cc_prebuilt_binary {
 		},
 	},
 	compile_multilib: "64",
-	strip: {
-		none: true,
-	},
-	prefer: true,
-	relative_install_path: "hw",
-	soc_specific: true,
-}
-
-cc_prebuilt_binary {
-	name: "android.hardware.media.omx@1.0-service",
-	owner: "redmi",
-	target: {
-		android_arm: {
-			srcs: ["proprietary/vendor/bin/hw/android.hardware.media.omx@1.0-service"],
-			shared_libs: ["libbinder", "libutils", "liblog", "libbase", "libavservices_minijail", "libcutils", "libhidlbase", "libstagefright_omx", "libstagefright_xmlparser", "android.hardware.media.omx@1.0", "android.hidl.memory@1.0", "libc++", "libc", "libm", "libdl", ],
-		},
-	},
-	compile_multilib: "32",
 	strip: {
 		none: true,
 	},
@@ -15850,7 +15769,7 @@ cc_prebuilt_binary {
 	target: {
 		android_arm: {
 			srcs: ["proprietary/vendor/bin/mnld"],
-			shared_libs: ["libshim_sensors", "libmnl", "libcurl", "libcutils", "libnvram", "libcrypto", "libssl", "libz", "liblog", "libhardware", "libladder", "libDR", "libutils", "android.frameworks.sensorservice@1.0", "android.hardware.sensors@1.0", "libhidlbase", "libhidltransport", "libsensorndkbridge", "libc++", "libc", "libm", "libdl", ],
+			shared_libs: ["android.hardware.sensors@1.0-convert-shared", "libmnl", "libcurl", "libcutils", "libnvram", "libcrypto", "libssl", "libz", "liblog", "libhardware", "libladder", "libDR", "libutils", "android.frameworks.sensorservice@1.0", "android.hardware.sensors@1.0", "libhidlbase", "libhidltransport", "libsensorndkbridge", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "32",
@@ -15939,23 +15858,6 @@ cc_prebuilt_binary {
 		},
 	},
 	compile_multilib: "32",
-	strip: {
-		none: true,
-	},
-	prefer: true,
-	soc_specific: true,
-}
-
-cc_prebuilt_binary {
-	name: "osal_ut",
-	owner: "redmi",
-	target: {
-		android_arm64: {
-			srcs: ["proprietary/vendor/bin/osal_ut"],
-			shared_libs: ["libbinder", "libutils", "libcutils", "libui", "liblog", "libc++", "libc", "libm", "libdl", ],
-		},
-	},
-	compile_multilib: "64",
 	strip: {
 		none: true,
 	},
@@ -16301,6 +16203,18 @@ cc_prebuilt_binary {
 	},
 	prefer: true,
 	soc_specific: true,
+}
+
+install_symlink {
+	name: "libem_support_jni_libem_support_jni_symlink32",
+	installed_location: "system/priv-app/EngineerMode/lib/arm/libem_support_jni.so",
+	symlink_target: "/system/lib/libem_support_jni.so",
+}
+
+install_symlink {
+	name: "libem_support_jni_libem_support_jni_symlink64",
+	installed_location: "system/priv-app/EngineerMode/lib64/arm64/libem_support_jni.so",
+	symlink_target: "/system/lib64/libem_support_jni.so",
 }
 
 install_symlink {
