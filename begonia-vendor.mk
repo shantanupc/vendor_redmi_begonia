@@ -1912,6 +1912,15 @@ PRODUCT_PACKAGES += \
     ImsService \
     EmCamera \
     SoterService \
+    mediatek-common \
+    mediatek-framework \
+    mediatek-ims-base \
+    mediatek-ims-common \
+    mediatek-ims-extension-plugin \
+    mediatek-ims-legacy \
+    mediatek-telecom-common \
+    mediatek-telephony-base \
+    mediatek-telephony-common \
     HotwordEnrollmentOKGoogleCORTEXM4 \
     HotwordEnrollmentXGoogleCORTEXM4 \
     com.android.hotwordenrollment.common.util \
